@@ -77,7 +77,8 @@ class ArticleFixture extends Fixture
                 ->setEmail($faker->email)
                 ->setPassword($hash)
                 ->setPicture($picture)
-                ->addUserRole($adminRole);
+                ->addUserRole($adminRole)
+                ->setJob('Membre');
             $manager->persist($user);
             $users[] = $user;
         }
@@ -96,8 +97,7 @@ class ArticleFixture extends Fixture
                 ->setUsername($faker->userName)
                 ->setEmail($faker->email)
                 ->setPassword($hash)
-                ->setPicture($picture)
-                ->setJob('Membre');
+                ->setPicture($picture);
             $manager->persist($user);
             $users[] = $user;
         }
