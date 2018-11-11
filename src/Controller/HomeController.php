@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use App\Repository\GalleryRepository;
-use App\Repository\MemberRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -74,7 +73,6 @@ class HomeController extends AbstractController
     public function gallery(GalleryRepository $repo) {
 
         $galleries = $repo->findAll();
-        dump($galleries);
         return $this->render('home/gallery.html.twig', [
             'galleries' => $galleries
         ]);
