@@ -20,16 +20,7 @@
     <section class="gallery-section">
         <!--MixitUp Galery-->
         <div class="mixitup-gallery">
-            <!--Filter-->
-            <div class="filters clearfix">
-                <ul class="filter-tabs filter-btns clearfix">
-                    <li class="active filter" data-role="button" data-filter="all">All</li>
-                    <li class="filter" data-role="button" data-filter=".marketing">Marketing</li>
-                    <li class="filter" data-role="button" data-filter=".financing">Financing</li>
-                    <li class="filter" data-role="button" data-filter=".analys">Analys</li>
-                    <li class="filter" data-role="button" data-filter=".designing">Designing</li>
-                </ul>
-            </div>
+
             <div class="filter-list row clearfix">
 
                 {% for gallery in galleries %}
@@ -59,11 +50,11 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="js/isotope.js"></script>
-    <script src="js/mixitup.js"></script>
-    <script src="js/jquery.fancybox.js"></script>
-    <script src="js/owl.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/appear.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/mixitup.js"></script>
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/script.js"></script>
 {% endblock %}
