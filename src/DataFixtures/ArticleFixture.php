@@ -105,7 +105,8 @@ class ArticleFixture extends Fixture
         // création de la galerie
         for($g=0; $g<50; $g++) {
             $gallery = new Gallery();
-            $gallery->setUrl($faker->imageUrl(640,480))
+            $photo = "https://picsum.photos/640/480?image=".$g;
+            $gallery->setUrl($photo)
                 ->setCaption($faker->words(mt_rand(2,5),true));
             $manager->persist($gallery);
         }
@@ -127,16 +128,17 @@ class ArticleFixture extends Fixture
                 $title = $faker->words(mt_rand(3, 6),true);
                 $rd = mt_rand(0, 5);
                 if ($rd > 3) $video = 'https://www.youtube.com/watch?v=Fvae8nxzVz4'; else $video = null;
-
+                $photo = "https://picsum.photos/640/480?image=".mt_rand(500, 1000);
                 $article->setTitle($title)
                     ->setSlug($slugify->slugify($title))
                     ->setShortDescription($faker->sentences(mt_rand(2,6),true))
                     ->setDescription($faker->sentences(mt_rand(10,30),true))
                     ->setQuotation($faker->sentences(mt_rand(5,9),true))
-                    ->setImage($faker->imageUrl(640,480,'city'))
+                    ->setImage($photo)
                     ->setVideo($video)
                     ->setCreatedAt($faker->dateTimeBetween('-6 months'))
                     ->setMember($member)
+                    ->setAuthor($users[mt_rand(0, 4)])
                     ->setCategory($categories[mt_rand(0, 4)])
                     ->setLiked(mt_rand(0, 85))
                     ->setValide(mt_rand(0, 1));
