@@ -1,0 +1,101 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <div id="right-panel" class="right-panel">
+
+        {% include 'admin/header.html.twig' %}
+
+        <div class="breadcrumbs">
+            <div class="col-sm-10">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1><span>Commentaires de</span> {{ userComment.firstname }} {{ userComment.lastname }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col">
+                        <aside class="profile-nav alt">
+                            <section class="card">
+                                <div class="card-header user-header alt bg-dark">
+                                    <div class="media">
+                                        <a href="#">
+                                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{ userComment.picture }}">
+                                        </a>
+                                        <div class="media-body">
+                                            <h2 class="text-light display-6">{{ userComment.firstname }} {{ userComment.lastname }}</h2>
+                                            <h4 class="text-warning">{{ userComment.username }}</h4>
+                                            <p>{{ userComment.email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <ul class="list-group list-group-flush">
+                                    {% for comment in userComment.comments %}
+                                        <li class="list-group-item">
+                                            <h3>{{ comment.article.title }}</h3>
+                                            <p>{{ comment.message }}</p>
+                                            <div style="width: 100%">
+                                                <p style="float: right">
+                                                <label class="switch switch-text switch-warning switch-pill" >
+                                                    <input ref="{{ comment.id }}" type="checkbox" class="switch-input" {% if comment.showComment %} checked="checked" {% endif %}>
+                                                    <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                    <span class="switch-handle"></span>
+                                                </label>
+                                                </p>
+                                                <span>Posté le <i>{{ comment.createdAt | date('d M Y') }}</i> à <i>{{ comment.createdAt | date('H:i') }}</i></span>
+
+
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <br><br><br>
+                            </section>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(".switch-input").change(function () {
+            var id = $(this).attr("ref");
+            var check = $(this).prop("checked");
+            var valeur = (check) ? 1 : 0;
+            //if (check) valeur = 1;
+            $.ajax({
+                url: "{{ path('ajax_show_comment') }}",
+                type: 'POST',
+                data: {'id': id, 'valeur': valeur},
+                success: function (data) {
+
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

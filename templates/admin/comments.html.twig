@@ -1,0 +1,71 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        {% include 'admin/header.html.twig' %}
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Commentaires</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Commentaires</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Commentaires</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <th scope="row">{{ article.createdAt | date('d M Y') }}</th>
+                                    <td>{{ article.title }}</td>
+                                    <td>{{ article.comments.count() }}</td>
+                                    <td><a class="text-danger" href="{{ path('details', {'id':article.id}) }}">Voir</a> </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}

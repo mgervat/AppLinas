@@ -1,0 +1,84 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        {% include 'admin/header.html.twig' %}
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1> </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-left: 60px; margin-right: 60px; margin-bottom: 120px;">
+                <div class="card-header">
+                    <strong class="card-title">Slider</strong>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.image1, { 'label': 'Première image' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text1, { 'label': 'Premier texte en rouge' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text2, { 'label': 'Deuxième texte en gras' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text3, { 'label': 'Troisième texte' }) }}
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        {{ form_row(form.image2, { 'label': 'Deuxième image' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text4, { 'label': 'Premier texte en rouge' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text5, { 'label': 'Deuxième texte en gras' }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.text6, { 'label': 'Troisième texte' }) }}
+                    </div>
+                    <div class="form-group mt-5">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Enregistrer</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

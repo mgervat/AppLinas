@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association Linas Autrement, le blog{% endblock %}
+
+{% block body %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/images/background/9.jpg);">
+        <div class="auto-container">
+            <h1>Blog</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ path('home') }}">Home </a></li>
+                <li>Blog</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="blog-standard">
+
+                        {% for article in articles %}
+
+                            <!-- News Block -->
+                            <div class="news-block-three">
+                                <div class="image-box">
+                                    <figure class="image"><a href="{{ path('blog_article', {'slug':article.slug}) }}"><img src="{{ article.image }}" alt=""></a></figure>
+                                    {% if article.video != null %}
+                                        <a href="{{ article.video }}" class="play-now" data-fancybox="gallery" data-caption="">
+                                            <i class="icon fa fa-play" aria-hidden="true"></i>
+                                            <span class="ripple"></span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <div class="lower-content">
+                                    <div class="inner-box">
+                                        <ul class="info-list">
+                                            <li>{{ article.createdAt | date('d M Y') }} à {{ article.createdAt | date('H:i') }}</li>
+                                            <li>
+                                                <a href="#">Like <span class="like">({{ article.liked }})</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Comment <span class="comment">({{ article.comments.count() }})</span></a>
+                                            </li>
+                                        </ul>
+                                        <h3><a href="{{ path('blog_article', {'slug':article.slug}) }}">{{ article.title }}</a></h3>
+                                        <p>{{ article.shortDescription }}</p>
+
+                                        <a href="{{ path('blog_article', {'slug':article.slug}) }}" class="read-more">Lire l'article</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                        <!-- Styled Pagination -->
+                        <div class="styled-pagination clearfix">
+                            <ul class="clearfix">
+                                {% if page > 1 %}
+                                    <li class="next"><a href="{{ path('blog', {'page':1}) }}"><<</a></li>
+                                {% endif %}
+                                {% for p in 1..pages %}
+                                    <li><a href="{{ path('blog', {'page':p}) }}" {% if p == page %}class="active"{% endif %}>{{ p }}</a></li>
+                                {% endfor %}
+                                {% if page < pages %}
+                                    <li class="next"><a href="{{ path('blog', {'page':pages}) }}">>></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Sidebar Side-->
+                <div class="sidebar-side col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <aside class="sidebar default-sidebar">
+
+                        <!-- Category Widget -->
+                        <div class="sidebar-widget categories">
+                            <div class="sidebar-title"><h3>Catégories</h3></div>
+                            <ul class="category-list">
+                                {% for category in categories %}
+                                    <li><a href="{{ path('blog_category', {'slug' : category.slug}) }}">{{ category.title }}</a></li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+
+
+                        <!-- Gallery Widget -->
+                        <div class="sidebar-widget gallery-widget">
+                            <div class="sidebar-title"><h3>Galerie Instagram</h3></div>
+                            <div class="gallery-outer clearfix">
+                                {{ render(controller(
+                                    'App\\Controller\\HomeController::sidebarGalleries'
+                                )) }}
+                            </div>
+                            <div class="btn-box">
+                        </div>
+
+                            <div  style="width:100%; height:60px;"><p><br><br><br></p></div>
+
+
+                        <!-- Post Widget -->
+                        {{ render(controller(
+                            'App\\Controller\\BlogController::sidebarArticles'
+                        )) }}
+
+
+                        <!-- Tags -->
+                        <div class="sidebar-widget tags">
+                            <div class="sidebar-title"><h3>Mots clés</h3></div>
+                            <ul class="tag-list clearfix">
+                                <li><a href="#">tag 1</a></li>
+                                <li><a href="#">tag 2</a></li>
+                                <li><a href="#">tag 3</a></li>
+                                <li><a href="#">tag 1</a></li>
+                                <li><a href="#">tag 2</a></li>
+                                <li><a href="#">tag 3</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Meta tags
+                        <div class="sidebar-widget meta">
+                            <div class="sidebar-title"><h3>Meta</h3></div>
+                            <ul class="meta-list">
+                                <li><a href="#">Log in</a></li>
+                                <li><a href="#">Entries <span>RSS</span></a></li>
+                                <li><a href="#">Comments <span>RSS</span></a></li>
+                                <li><a href="#">WordPress.org</a></li>
+                            </ul>
+                        </div> -->
+
+
+
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Container -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/script.js"></script>
+{% endblock %}

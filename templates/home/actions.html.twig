@@ -1,0 +1,213 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association Linas Autrement, Nos Actions{% endblock %}
+
+{% block body %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/images/background/6.jpg);">
+        <div class="auto-container">
+            <h1>Services</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li>Services</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Work Section -->
+    <section class="work-section">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <h4 class="title">Nos actions</h4>
+                <h2>Que faisons nous?</h2>
+                <div class="separator"><span class="flaticon-nature"></span></div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="left-column col-md-3 col-sm-6 col-xs-12">
+                    <div class="inner-column">
+                        <div class="work-block">
+                            <div class="inner" ref="/images/resource/work-1.jpg">
+                                <img src="/images/icons/wind-2.png" alt="" class="icon">
+                                <h4><a href="#">Wind Energy</a></h4>
+                                <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
+                                <button type="button" class="btn btn-primary" ref="section1">
+                                    Lire
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="work-block">
+                            <div class="inner" ref="/images/resource/work-2.jpg">
+                                <img src="/images/icons/recycle-2.png" alt="" class="icon">
+                                <h4><a href="#">Recyling Process</a></h4>
+                                <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
+                                <button type="button" class="btn btn-primary" ref="section3">
+                                    Lire
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column pull-right col-md-3 col-sm-6 col-xs-12">
+                    <div class="inner-column">
+                        <div class="work-block">
+                            <div class="inner" ref="/images/resource/work-3.jpg">
+                                <img src="/images/icons/save-2.png" alt="" class="icon">
+                                <h4><a href="#">Save Forest 2</a></h4>
+                                <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
+                                <a href="#" class="read-more">Learn More</a>
+                                <button type="button" class="btn btn-primary" ref="section3">
+                                    Lire
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="work-block">
+                            <div class="inner" ref="/images/resource/work-4.jpg">
+                                <img src="/images/icons/water-2.png" alt="" class="icon">
+                                <h4><a href="#">Water Refine</a></h4>
+                                <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
+                                <a href="#" class="read-more">Learn More</a>
+                                <button type="button" class="btn btn-primary" ref="section4">
+                                    Lire
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-image col-md-6 col-sm-12 col-xs-12">
+                    <div class="inner-box">
+                        <figure class="image"><img id="image" src="/images/resource/image-1.jpg" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Work Section -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 60%">
+        <div class="modal-content">
+
+            <!--About Section-->
+            <section id="section1" class="about-section style-two">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Content Column-->
+                        <div class="content-column">
+                            <div class="inner-box">
+                                <div class="sec-title" style="width: 100%; text-align: center">
+                                    <h4 class="title">About</h4>
+                                    <h2>Helping Animals &amp; Working On Environmental section 1</h2>
+                                    <div class="separator"><span class="flaticon-nature"></span></div>
+                                </div>
+                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
+                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
+                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End About Section-->
+
+            <!--About Section-->
+            <section id="section2" class="about-section style-two">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Content Column-->
+                        <div class="content-column">
+                            <div class="inner-box">
+                                <div class="sec-title" style="width: 100%; text-align: center">
+                                    <h4 class="title">About</h4>
+                                    <h2>Helping Animals &amp; Working On Environmental section 2</h2>
+                                    <div class="separator"><span class="flaticon-nature"></span></div>
+                                </div>
+                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
+                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
+                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End About Section-->
+
+            <!--About Section-->
+            <section id="section3" class="about-section style-two">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Content Column-->
+                        <div class="content-column">
+                            <div class="inner-box">
+                                <div class="sec-title" style="width: 100%; text-align: center">
+                                    <h4 class="title">About</h4>
+                                    <h2>Helping Animals &amp; Working On Environmental section 3</h2>
+                                    <div class="separator"><span class="flaticon-nature"></span></div>
+                                </div>
+                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
+                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
+                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End About Section-->
+
+            <!--About Section-->
+            <section id="section4" class="about-section style-two">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Content Column-->
+                        <div class="content-column">
+                            <div class="inner-box">
+                                <div class="sec-title" style="width: 100%; text-align: center">
+                                    <h4 class="title">About</h4>
+                                    <h2>Helping Animals <br> &amp; Working On <br> Environmental <br> section 4</h2>
+                                    <div class="separator"><span class="flaticon-nature"></span></div>
+                                </div>
+                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
+                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
+                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End About Section-->
+
+        </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+        $(".inner").mouseenter(function () {
+            var img = $(this).attr("ref");
+            $("#image").attr("src",img);
+        });
+
+        $(".btn").click(function () {
+            $(".about-section").hide();
+            $("#" + $(this).attr("ref")).show()
+            $('#myModal').modal('show')
+        })
+
+    </script>
+{% endblock %}

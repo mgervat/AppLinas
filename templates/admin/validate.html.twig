@@ -1,0 +1,120 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        {% include 'admin/header.html.twig' %}
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        {% set route = app.request.get('_route') %}
+                        {% if route == "article_read" %}
+                            <h1>Lire l'article n° {{ article.id }}</h1>
+                        {% else %}
+                            <h1>Validation de l'article n° {{ article.id }}</h1>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            {% if route == "validation" %}
+                                <li class="active"><a id="validation" href="javascript:void(0);" class="btn btn-danger">Valider</a></li>
+                            {% endif %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Texte</strong>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="text-info">{{ article.title }}</h3>
+                                <hr>
+                                <p>{{ article.createdAt | date('d M Y') }}</p>
+                                <hr>
+                                <br>
+                                <p>{{ article.shortDescription }}</p>
+                                <blockquote>
+                                    <span class="icon flaticon-left-quotes-sign">"</span>
+                                    {{ article.quotation }}
+                                    <span class="icon flaticon-left-quotes-sign">"</span>
+                                </blockquote>
+                                <br>
+                                <p>{{ article.description | nl2br }}</p>
+                                <hr>
+                                <div class="card-text text-sm-center">
+                                    <h5>{{ article.member.name }}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Images & Vidéo</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>Image principale</p>
+                                <img src="{{ article.image }}">
+                                <hr>
+                                <p>Vidéo</p>
+                                {% if article.video != null %}
+                                    <video width="320" height="240" controls>
+                                        <source src="{{ article.video }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $("#validation").click(function () {
+            var id = {{ article.id }}
+            $.ajax({
+                url: "{{ path('ajax_validation') }}",
+                type: 'POST',
+                data: {'id': id},
+                success: function (data) {
+                    window.location.href = "{{ path('admin') }}";
+                }
+            });
+        });
+    </script>
+{% endblock %}

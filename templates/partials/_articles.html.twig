@@ -1,0 +1,12 @@
+<div class="sidebar-widget popular-post">
+    <div class="sidebar-title"><h3>Articles les plus populaires</h3></div>
+    <div class="widget-content">
+        {% for article in articles %}
+            <article class="post">
+                <a href="" class="thumb"><img src="{{ article.image }}" alt=""></a>
+                <div class="date">{{ article.createdAt | date('d M Y') }}</div>
+                <h3><a href="{{ path('blog_article', {'slug' : article.slug}) }}">{{ article.title }}</a></h3>
+            </article>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,71 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        {% include 'admin/header.html.twig' %}
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Utilisateurs</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+
+                {% for user in users %}
+                    {% if user.getUserRoles.count()<=0 %}
+                        <div class="col-md-3">
+                            <div class="feed-box text-center">
+                                <section class="card">
+                                    <div class="card-body">
+                                        <div class="corner-ribon blue-ribon">
+                                            <a href="{{ path('user_comments', {'id': user.id}) }}" style="float: right; margin-right: 6px">{{ user.comments | length }}</a>
+                                        </div>
+                                        <a href="#">
+                                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{ user.picture }}">
+                                        </a>
+                                        <h2>{{ user.firstname }} {{ user.lastname }}</h2>
+                                        <p>{{ user.email }}</p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+
+
+            </div>
+            <div style="clear: both; width: 100%; height: 60px"></div>
+        </div> <!-- .content -->
+
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

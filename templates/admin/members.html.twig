@@ -1,0 +1,71 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        {% include 'admin/header.html.twig' %}
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Membres</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                {% for member in members %}
+                    {% if member.userRoles.count() > 0 %}
+                        <div class="col-md-3">
+                            <div class="feed-box text-center">
+                                <section class="card">
+                                    <div class="card-body">
+                                        <div class="corner-ribon blue-ribon">
+                                            <a href="{{ path('member_article', {'id':member.id}) }}"><i class="fa">{{ member.articles | length }}</i></a>
+                                        </div>
+                                        <a href="#">
+                                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{ member.picture }}">
+                                        </a>
+                                        <h2>{{ member.firstname }} {{ member.lastname }}</h2>
+                                        <h5>{{ member.job }}</h5>
+                                        <p>{{ member.email }}</p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                </div>
+            </div>
+            <div style="clear: both; width: 100%; height: 60px"></div>
+        </div> <!-- .content -->
+
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

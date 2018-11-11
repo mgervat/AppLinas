@@ -1,0 +1,143 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        {% include 'admin/header.html.twig' %}
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Galerie</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active"><a id="toggle_crud" href="javascript:void(0);" class="btn btn-primary">Ajouter</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div id="crud" style="clear: both; width: 100%; display: none">
+                <div style="width: 80%; margin-left: 10%">
+                    <form method="post" action="{{ path('galleries') }}">
+                    <h3 id="titre">Ajouter une image</h3><br>
+                    <input type="hidden" id="id" name="id" value="0">
+                    <div class="form-group">
+                        <label>Url</label>
+                        <input id="url" name="url" type="text" class="form-control" placeholder="Lien de l'image">
+                    </div>
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input id="caption" name="caption" type="text" class="form-control" placeholder="Titre de l'image">
+                    </div>
+                    <button id="send" type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Enregistrer</button>
+                    <button id="close" type="button" class="btn btn-secondary">Annuler</button>
+                    <br><br><br>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+                {% for message in app.flashes('success') %}
+                    <div class="col-sm-12">
+                        <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                            <span class="badge badge-pill badge-success">Success</span> {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="row">
+                    
+                    {% for gallery in galleries %}
+                        <div class="col-3">
+                            <div id="card{{ gallery.id }}" class="card">
+                                <div class="card-header">
+                                    <form method="post" action="{{ path('gallery_delete', {'id':gallery.id }) }}" onsubmit="return confirm('Confirmer la suppression!')">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete'~gallery.id) }}">
+                                        <button style="float: right; margin-left: 6px;" type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <strong class="card-title">{{ gallery.caption }}</strong>
+                                </div>
+                                <div class="card-body">
+                                    <img src="{{ gallery.url }}">
+                                </div>
+                                <div class="card-text text-sm-center">
+                                    <p>{{ gallery.url }}</p>
+                                    <hr>
+                                    <button ref="{{ gallery.id }}" ref-caption="{{ gallery.caption }}" ref-url="{{ gallery.url }}" type="button" class="btn btn-warning update" style="width: 100%">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#close").click(function () {
+            $("#crud").hide();
+        });
+
+        $("#toggle_crud").click(function () {
+            $("#titre").html("Ajouter une image");
+            $("#caption").val("");
+            $("#url").val("")
+            $("#id").val(0);
+
+            $("#crud").show();
+        });
+
+        $(".update").click(function () {
+            var id = $(this).attr("ref");
+            var caption = $(this).attr("ref-caption");
+            var url = $(this).attr("ref-url");
+
+            $("#titre").html("Modifier une image");
+            $("#caption").val(caption);
+            $("#url").val(url)
+            $("#id").val(id);
+
+            $("#crud").show();
+        });
+
+        $(".delete").click(function () {
+            var id = $(this).attr("ref");
+            $("#card" + id).remove();
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block title %}Administration - Linas autrement!{% endblock %}
+
+{% block body %}
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        {% include 'admin/header.html.twig' %}
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active"><a href="{{ path('article_new') }}" class="btn btn-primary btn-lg btn-block">Créer un article</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+                {% for message in app.flashes('success') %}
+                    <div class="col-sm-12">
+                        <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                            <span class="badge badge-pill badge-success">Success</span> {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">{{ member.firstname }} {{ member.lastname }}</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <th>{{ article.createdAt | date('d M Y') }}</th>
+                                    <td>{{ article.title }}</td>
+                                    <td>
+                                        <a style="float: left; margin-right: 6px" class="btn btn-warning" href="{{ path('article_read', {'id':article.id}) }}">Voir</a>
+                                        {% if app.user and app.user == article.author %}
+                                            <a style="float: left; margin-right: 6px" class="btn btn-info" href="{{ path('article_edit', {'id':article.id}) }}">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <form method="post" action="{{ path('article_delete', {'id':article.id }) }}" onsubmit="return confirm('Confirmer la suppression!')">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete'~article.id) }}">
+                                                <button style="float: left" type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

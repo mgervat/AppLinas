@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association Linas Autrement, {{ article.title }}{% endblock %}
+
+{% block body %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/images/background/10.jpg);">
+        <div class="auto-container">
+            <h1>{{ article.title }}</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('blog') }}">Blog</a></li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="blog-detail">
+                        <!-- News Block -->
+                        <div class="news-block-three">
+                            <div class="image-box">
+                                <figure class="image"><img src="{{ article.image }}" alt="{{ article.title }}"></figure>
+                            </div>
+                            <div class="lower-content">
+                                <div class="inner-box">
+                                    <ul class="info-list">
+                                        <li>{{ article.createdAt | date('d M Y') }} à {{ article.createdAt | date('H:i') }}</li>
+                                        <li>
+                                            <a href="">Like <span class="like">({{ article.liked }})</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="">Comment <span class="comment">({{ article.comments.count() }})</span></a>
+                                        </li>
+                                    </ul>
+                                    <h3>{{ article.title }}</h3>
+                                    <p>{{ article.shortDescription }}</p>
+                                    <blockquote>
+                                        <span class="icon flaticon-left-quotes-sign"></span>
+                                        {{ article.quotation }}
+                                    </blockquote>
+                                    <p>{{ article.description }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Author Box -->
+                        <div class="author-box">
+                            <div class="inner-box">
+                                <div class="image-box"><img src="{{ article.author.picture }}" alt="{{ article.author.firstname }} {{ article.author.lastname }}"></div>
+                                <div class="name">
+                                    <span>Écris par</span>
+                                    <h3><a href="#">{{ article.author.firstname }} {{ article.author.lastname }}</a></h3>
+                                </div>
+                                <p>{{ article.author.job }}</p>
+                                <br><br><br>
+                            </div>
+                        </div>
+
+                        {% if article.comments.count() > 0 %}
+                            <!-- Comments Area -->
+                            <div class="comments-area">
+                                <div class="group-title"><h4>Comments: {{ article.comments.count() }}</h4></div>
+                                {% for comment in article.comments %}
+                                    <div class="comment-box">
+                                        <div class="comment">
+                                            <div class="author-thumb"><img src="{{ comment.user.picture }}" alt=""></div>
+                                            <div class="comment-info">
+                                                <div class="name">{{ comment.user.username }}</div>
+                                                <div class="time">{{ comment.createdAt | date('d M y') }}</div>
+                                            </div>
+                                            <div class="text">
+                                                {% if comment.showComment %}
+                                                    {{ comment.message }}
+                                                {% else %}
+                                                    <h3 class="text-danger">Message supprimé par l'administrateur!</h3>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <!--Comment Form-->
+                        <div class="comment-form">
+                            <div class="group-title"><h4>Poster un commentaire</h4></div>
+
+                            <form method="post" action="">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <textarea name="message" placeholder="Votre commentaire"></textarea>
+                                        <span class="icon fa fa-pencil-square"></span>
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form">ENVOYER</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Sidebar Side-->
+                <div class="sidebar-side col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <aside class="sidebar default-sidebar">
+                        <!-- Category Widget -->
+                        <div class="sidebar-widget categories">
+                            <div class="sidebar-title"><h3>Catégories</h3></div>
+                            <ul class="category-list">
+                                {% for c in categories %}
+                                    <li>
+                                        <a {% if c.id == article.category.id %}style="color: #e94c4c; font-weight: bold"{% endif %} href="{{ path('blog_category', {'slug' : c.slug}) }}">
+                                            {{ c.title }}
+                                            <span>({{ c.articles.count() }})</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+
+                        <!-- Gallery Widget -->
+                        <div class="sidebar-widget gallery-widget">
+                            <div class="sidebar-title"><h3>Gallerie Instagram</h3></div>
+                            <div class="gallery-outer clearfix">
+                                {{ render(controller(
+                                    'App\\Controller\\HomeController::sidebarGalleries'
+                                )) }}
+                            </div>
+                            <div class="btn-box"><a href="{{ path('gallery') }}" class="theme-btn btn-style-two">Follow Us</a></div>
+                        </div>
+
+
+                        <!-- Post Widget -->
+                        {{ render(controller(
+                            'App\\Controller\\BlogController::sidebarArticles'
+                        )) }}
+
+                        <!-- Tags -->
+                        <div class="sidebar-widget tags">
+                            <div class="sidebar-title"><h3>Mots clés</h3></div>
+                            <ul class="tag-list clearfix">
+                                <li><a href="#">tag 1</a></li>
+                                <li><a href="#">tag 2</a></li>
+                                <li><a href="#">tag 3</a></li>
+                                <li><a href="#">tag 1</a></li>
+                                <li><a href="#">tag 2</a></li>
+                                <li><a href="#">tag 3</a></li>
+                            </ul>
+                        </div>
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Container -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/script.js"></script>
+{% endblock %}

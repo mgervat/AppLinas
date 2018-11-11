@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association Linas Autrement, galerie{% endblock %}
+
+{% block body %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/images/background/7.jpg);">
+        <div class="auto-container">
+            <h1>Gallery</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ path('home') }}">Home </a></li>
+                <li>Gallery</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+            <div class="filters clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <li class="active filter" data-role="button" data-filter="all">All</li>
+                    <li class="filter" data-role="button" data-filter=".marketing">Marketing</li>
+                    <li class="filter" data-role="button" data-filter=".financing">Financing</li>
+                    <li class="filter" data-role="button" data-filter=".analys">Analys</li>
+                    <li class="filter" data-role="button" data-filter=".designing">Designing</li>
+                </ul>
+            </div>
+            <div class="filter-list row clearfix">
+
+                {% for gallery in galleries %}
+                    <!-- Gallery Item -->
+                    <div class="gallery-item mix all marketing analys col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <figure class="image"><img src="{{ gallery.url }}" alt=""></figure>
+                            <div class="caption-box">
+                                <div class="inner">
+                                    <div class="title"><h3><a href="#">{{ gallery.caption }}</a></h3></div>
+                                    <h4>Helping Animals</h4>
+                                    <div class="icon-box">
+                                        <a href="{{ gallery.url }}" class="lightbox-image" data-fancybox="Gallery"><span class="flaticon-add"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- End Gallery section -->
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="js/isotope.js"></script>
+    <script src="js/mixitup.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/script.js"></script>
+{% endblock %}

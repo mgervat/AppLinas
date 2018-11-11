@@ -1,0 +1,5 @@
+{% for gallery in galleries %}
+    <figure class="image">
+        <a href="{{ gallery.url }}" class="lightbox-image" title="{{ gallery.caption }}"><img src="{{ gallery.url }}" alt=""></a>
+    </figure>
+{% endfor %}

@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association Linas Autrement, donnation{% endblock %}
+
+{% block body %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/images/background/5.jpg);">
+        <div class="auto-container">
+            <h1>Faire un don !</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ path('home') }}">Home </a></li>
+                <li>Faire un don</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!--Donate Section-->
+    <section class="donate-section">
+        <div class="auto-container">
+            <div class="donate-form">
+                <form method="post" action="#">
+                    <div class="row clearfix">
+
+                        <!--Left Column-->
+                        <div class="left-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="default-title"><h2>DETAILS du DON</h2></div>
+                            <div class="row clearfix">
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Combien souhaitez-vous donner?</div>
+                                    <div class="select-amount clearfix">
+                                        <div class="select-box"><input type="radio" name="payment-group" id="radio-one"><label for="radio-one">10</label></div>
+                                        <div class="select-box"><input type="radio" name="payment-group" id="radio-two" checked><label for="radio-two">20</label></div>
+                                        <div class="select-box"><input type="radio" name="payment-group" id="radio-three"><label for="radio-three">50</label></div>
+                                        <div class="select-box"><input type="radio" name="payment-group" id="radio-four"><label for="radio-four">100</label></div>
+                                        <div class="input-box"><input type="text" name="other-payment" value="" placeholder="Autre montant"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Souhaitez-vous faire un don régulier?</div>
+                                    <select name="how-many-times">
+                                        <option>Mensuel</option>
+                                        <option>Unique</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <p>Mode de paiement</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--Right Column-->
+                        <div class="right-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="default-title"><h2>VOS INFORMATIONS</h2></div>
+                            <div class="row clearfix">
+
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Prénom *</div>
+                                    <input type="text" name="field-name" value="" placeholder="" required>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Nom *</div>
+                                    <input type="text" name="field-name" value="" placeholder="">
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Email *</div>
+                                    <input type="email" name="field-name" value="" placeholder="" required>
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Téléphone</div>
+                                    <input type="email" name="field-name" value="" placeholder="">
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Addresse</div>
+                                    <textarea name="field-name" placeholder=""></textarea>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <button type="submit" class="theme-btn btn-style-two">Envoyer votre don</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <!--End Donate Section-->
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/script.js"></script>
+{% endblock %}
