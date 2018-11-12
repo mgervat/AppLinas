@@ -70,7 +70,7 @@
                                     </th>
                                     <th>{{ article.createdAt | date('d M Y') }}</th>
                                     <td>{{ article.title }}</td>
-                                    <td>{{ article.member.name }}</td>
+                                    <td>{{ article.author.firstname }}</td>
                                     <td>
                                         <a style="float: left; margin-right: 6px" class="btn btn-warning" href="{{ path('article_read', {'id':article.id}) }}">Voir</a>
                                         {% if app.user and app.user == article.author %}

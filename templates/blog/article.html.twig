@@ -68,10 +68,12 @@
                                     </ul>
                                     <h3>{{ article.title }}</h3>
                                     <p>{{ article.shortDescription }}</p>
-                                    <blockquote>
-                                        <span class="icon flaticon-left-quotes-sign"></span>
-                                        {{ article.quotation }}
-                                    </blockquote>
+                                    {% if article.quotation | length > 0 %}
+                                        <blockquote>
+                                            <span class="icon flaticon-left-quotes-sign"></span>
+                                            {{ article.quotation }}
+                                        </blockquote>
+                                    {% endif %}
                                     <p>{{ article.description }}</p>
 
                                 </div>

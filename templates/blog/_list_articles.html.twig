@@ -1,0 +1,29 @@
+<!-- News Block -->
+<div class="news-block-three">
+    <div class="image-box">
+        <figure class="image"><a href="{{ path('blog_article', {'slug':article.slug}) }}"><img src="{{ article.image }}" alt=""></a></figure>
+        {% if article.video != null %}
+            <a href="{{ article.video }}" class="play-now" data-fancybox="gallery" data-caption="">
+                <i class="icon fa fa-play" aria-hidden="true"></i>
+                <span class="ripple"></span>
+            </a>
+        {% endif %}
+    </div>
+    <div class="lower-content">
+        <div class="inner-box">
+            <ul class="info-list">
+                <li>{{ article.createdAt | date('d M Y') }} à {{ article.createdAt | date('H:i') }}</li>
+                <li>
+                    <a href="#">Like <span class="like">({{ article.liked }})</span></a>
+                </li>
+                <li>
+                    <a href="#">Comment <span class="comment">({{ article.comments.count() }})</span></a>
+                </li>
+            </ul>
+            <h3><a href="{{ path('blog_article', {'slug':article.slug}) }}">{{ article.title }}</a></h3>
+            <p>{{ article.shortDescription }}</p>
+
+            <a href="{{ path('blog_article', {'slug':article.slug}) }}" class="read-more">Lire l'article</a>
+        </div>
+    </div>
+</div>

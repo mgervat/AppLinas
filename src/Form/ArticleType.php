@@ -4,14 +4,18 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Category;
-use App\Entity\Member;
+use App\Form\ApplicationType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class ArticleType extends ApplicationType
 {
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -20,24 +24,45 @@ class ArticleType extends AbstractType
                 EntityType::class,
                 [
                     'class' => Category::class,
-                    'choice_label' => 'title'
+                    'choice_label' => 'title',
+                    'label' => 'Catégorie *'
                 ]
             )
-            ->add('title')
-            ->add('shortDescription')
-            ->add('quotation')
-            ->add('description')
-            ->add('image')
-            ->add('video')
             ->add(
-                'member',
-                EntityType::class,
-                [
-                    'class' => Member::class,
-                    'choice_label' => 'name'
-                ]
+                'title',
+                TextType::class,
+                $this->getConfiguration(true,'Titre *', 'Titre de l\'article')
             )
-
+            ->add(
+                'shortDescription',
+                TextareaType::class,
+                $this->getConfiguration(true,'Introduction *', 'Texte d\'introduction')
+            )
+            ->add(
+                'quotation',
+                TextareaType::class,
+                $this->getConfiguration(false,'Texte entre les quotes', 'Petit texte')
+            )
+            ->add(
+                'description',
+                TextareaType::class,
+                $this->getConfiguration(true,'Texte de l\'article *', 'Votre texte')
+            )
+            ->add(
+                'image',
+                TextType::class,
+                $this->getConfiguration(true,'Image *', 'Url de l\'image')
+            )
+            ->add(
+                'video',
+                TextType::class,
+                $this->getConfiguration(false,'Vidéo', 'Url de la vidéo')
+            )
+            ->add(
+                'liked',
+                IntegerType::class,
+                $this->getConfiguration(false,'Nombre de Like', 'Entier')
+            )
         ;
     }
 

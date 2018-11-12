@@ -141,6 +141,7 @@ class AdminController extends AbstractController
             $title = $article->getTitle();
             $article->setSlug($slugify->slugify($title))
                     ->setCreatedAt(new \DateTime())
+                    ->setAuthor($user)
                     ->setValide(0);
             $manager->persist($article);
             $manager->flush();

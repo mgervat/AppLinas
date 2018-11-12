@@ -52,7 +52,7 @@
                                     <tr>
                                         <th scope="row">{{ article.createdAt | date('d M Y') }}</th>
                                         <td>{{ article.title }}</td>
-                                        <td>{{ article.member.name }}</td>
+                                        <td>{{ article.author.firstname }}</td>
                                         <td><a class="text-danger" href="{{ path('validation', {'id':article.id}) }}">Voir</a> </td>
                                     </tr>
                                 {% endfor %}
