@@ -11,7 +11,6 @@ use App\Form\SliderType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use App\Repository\GalleryRepository;
-use App\Repository\MemberRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;

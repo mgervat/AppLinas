@@ -88,9 +88,16 @@ class Article
      */
     private $author;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="rating")
+     */
+    private $usersRating;
+
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->usersRating = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -284,4 +291,33 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsersRating(): Collection
+    {
+        return $this->usersRating;
+    }
+
+    public function addUsersRating(User $usersRating): self
+    {
+        if (!$this->usersRating->contains($usersRating)) {
+            $this->usersRating[] = $usersRating;
+            $usersRating->addRating($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersRating(User $usersRating): self
+    {
+        if ($this->usersRating->contains($usersRating)) {
+            $this->usersRating->removeElement($usersRating);
+            $usersRating->removeRating($this);
+        }
+
+        return $this;
+    }
+
 }

@@ -86,7 +86,7 @@
                                             <li><a href="{{ path('contact') }}">Contact</a>
                                             </li>
                                             {% if app.user %}
-                                                <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.username }}</a>
+                                                <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
                                                     <ul>
                                                         <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
                                                         <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
@@ -144,7 +144,7 @@
                                         <li><a href="{{ path('contact') }}">Contact</a>
                                         </li>
                                         {% if app.user %}
-                                            <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.username }}</a>
+                                            <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
                                                 <ul>
                                                     <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
                                                     <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>

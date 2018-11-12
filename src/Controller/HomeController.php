@@ -6,7 +6,10 @@ use App\Repository\ArticleRepository;
 use App\Repository\GalleryRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -34,9 +37,10 @@ class HomeController extends AbstractController
      */
     public function about() {
         return $this->render('home/about.html.twig', [
-            'controller_name' => 'HomeController',
+
         ]);
     }
+
 
     /**
      * @Route("/team", name="team")

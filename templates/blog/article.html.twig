@@ -2,6 +2,19 @@
 
 {% block title %}Association Linas Autrement, {{ article.title }}{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+        .liked {
+            color: red;
+            font-size: 1.5em;
+        }
+        .liked:hover {
+            color: #0b2e13;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
 
     <!--Page Title-->
@@ -33,10 +46,24 @@
                                     <ul class="info-list">
                                         <li>{{ article.createdAt | date('d M Y') }} à {{ article.createdAt | date('H:i') }}</li>
                                         <li>
-                                            <a href="">Like <span class="like">({{ article.liked }})</span></a>
+                                            <span>
+                                                <span id="liker">
+                                                {% if app.user %}
+                                                    {% if rating==0 %}
+                                                        <a id="like" href="javascript:void(0);"><i class="fas fa-thumbs-up liked"></i></a>
+                                                    {% else %}
+                                                        <i class="far fa-thumbs-up"></i>
+                                                    {% endif %}
+                                                {% else %}
+                                                    Like
+                                                {% endif %}
+                                                </span>
+                                                {#<span class="like">({{ article.usersRating | length }})</span>#}
+                                                <span class="like">({{ article.liked }})</span>
+                                            </span>
                                         </li>
                                         <li>
-                                            <a href="">Comment <span class="comment">({{ article.comments.count() }})</span></a>
+                                            Comment <span class="comment">({{ article.comments.count() }})</span>
                                         </li>
                                     </ul>
                                     <h3>{{ article.title }}</h3>
@@ -55,7 +82,7 @@
                             <div class="inner-box">
                                 <div class="image-box"><img src="{{ article.author.picture }}" alt="{{ article.author.firstname }} {{ article.author.lastname }}"></div>
                                 <div class="name">
-                                    <span>Écris par</span>
+                                    <span>Écrit par</span>
                                     <h3><a href="#">{{ article.author.firstname }} {{ article.author.lastname }}</a></h3>
                                 </div>
                                 <p>{{ article.author.job }}</p>
@@ -91,19 +118,34 @@
                         <!--Comment Form-->
                         <div class="comment-form">
                             <div class="group-title"><h4>Poster un commentaire</h4></div>
+                            {% if app.user %}
+                                <form method="post" action="">
+                                    <div class="row clearfix">
+                                        {{ form_start(form) }}
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                            {{ form_widget(form) }}
+                                            {#<textarea name="message" placeholder="Votre commentaire"></textarea>#}
+                                            <span class="icon fa fa-pencil-square"></span>
+                                        </div>
 
-                            <form method="post" action="">
-                                <div class="row clearfix">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                        <textarea name="message" placeholder="Votre commentaire"></textarea>
-                                        <span class="icon fa fa-pencil-square"></span>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                            <button class="theme-btn btn-style-two" type="submit" name="submit-form">ENVOYER</button>
+                                        </div>
+                                        {{ form_end(form) }}
                                     </div>
+                                </form>
+                            {% else %}
+                                <div class="row mt-3">
+                                    <h4>Veuillez-vous connecter pour poster un commentaire</h4>
 
-                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form">ENVOYER</button>
+                                    <div class="row" style="margin-top: 30px">
+                                        <a class="theme-btn btn-style-two" href="{{ path('login') }}" name="submit-form"><i class="fas fa-lock-open"></i> Connexion</a>
+                                        <a class="theme-btn btn-style-two" style="margin-left: 30px; background-color: #00a67c; border-color: #00a67c" href="{{ path('account_register') }}">
+                                            Inscription
+                                        </a>
                                     </div>
                                 </div>
-                            </form>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -172,4 +214,19 @@
     <script src="/js/wow.js"></script>
     <script src="/js/appear.js"></script>
     <script src="/js/script.js"></script>
+
+    <script>
+        $("#like").click(function () {
+            var id = {{ article.id }}
+            $.ajax({
+                url: "{{ path('ajax_rating') }}",
+                type: 'POST',
+                data: {'id': id},
+                success: function (response) {
+                    $("#liker").html('<i class="far fa-thumbs-up"></i>')
+                    $(".like").html(response)
+                }
+            });
+        });
+    </script>
 {% endblock %}

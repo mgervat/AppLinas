@@ -86,6 +86,12 @@ class User implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Article", inversedBy="usersRating")
+     */
+    private $rating;
+
+
     public function getFullName() {
         return "{$this->firstname} {$this->lastname}";
     }
@@ -94,6 +100,7 @@ class User implements UserInterface
     {
         $this->comments = new ArrayCollection();
         $this->userRoles = new ArrayCollection();
+        $this->rating = new ArrayCollection();
         $this->articles = new ArrayCollection();
     }
 
@@ -206,6 +213,37 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getAuthor() === $this) {
+                $article->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     /**
      * Returns the roles granted to the user.
@@ -293,31 +331,27 @@ class User implements UserInterface
     /**
      * @return Collection|Article[]
      */
-    public function getArticles(): Collection
+    public function getRating(): Collection
     {
-        return $this->articles;
+        return $this->rating;
     }
 
-    public function addArticle(Article $article): self
+    public function addRating(Article $rating): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setAuthor($this);
+        if (!$this->rating->contains($rating)) {
+            $this->rating[] = $rating;
         }
 
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeRating(Article $rating): self
     {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
-            // set the owning side to null (unless already changed)
-            if ($article->getAuthor() === $this) {
-                $article->setAuthor(null);
-            }
+        if ($this->rating->contains($rating)) {
+            $this->rating->removeElement($rating);
         }
 
         return $this;
     }
+
 }
