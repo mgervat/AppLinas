@@ -49,6 +49,11 @@ class Member
      */
     private $articles;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $vide;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -146,6 +151,18 @@ class Member
                 $article->setMember(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVide(): ?string
+    {
+        return $this->vide;
+    }
+
+    public function setVide(?string $vide): self
+    {
+        $this->vide = $vide;
 
         return $this;
     }
