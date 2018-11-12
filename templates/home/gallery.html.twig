@@ -25,13 +25,13 @@
 
                 {% for gallery in galleries %}
                     <!-- Gallery Item -->
-                    <div class="gallery-item mix all marketing analys col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="gallery-item mix all marketing analys col-lg-2 col-md-6 col-sm-6 col-xs-12">
                         <div class="inner-box">
-                            <figure class="image"><img src="{{ gallery.url }}" alt=""></figure>
+                            <figure class="image"><img src="{{ gallery.url }}" alt="{{ gallery.caption }}"></figure>
                             <div class="caption-box">
                                 <div class="inner">
                                     <div class="title"><h3><a href="#">Linas autrement</a></h3></div>
-                                    <h4>{{ gallery.caption }}</h4>
+                                    <h5>{{ gallery.caption }}</h5>
                                     <div class="icon-box">
                                         <a href="{{ gallery.url }}" class="lightbox-image" data-fancybox="Gallery"><span class="flaticon-add"></span></a>
                                     </div>
