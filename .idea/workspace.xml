@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcedb101-2ab4-4d78-a799-e88130e6d923" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108072511.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108074945.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108085441.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108085732.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108091415.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108124014.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108124452.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108132638.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108142620.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108152839.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181108185941.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181109071709.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181110060706.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181110070710.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181110154919.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181111062530.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181111131435.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181111131912.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181112104029.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181112104313.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181112104944.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20181112105243.php" beforeDir="false" />
-    </list>
+    <list default="true" id="bcedb101-2ab4-4d78-a799-e88130e6d923" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +239,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="-33">
               <caret line="88" column="147" selection-start-line="88" selection-start-column="147" selection-end-line="88" selection-end-column="147" />
             </state>
           </provider>
@@ -519,7 +496,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542032236242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542032414599" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -555,12 +532,12 @@
       <updated>1541655158044</updated>
       <workItem from="1541655159410" duration="143482000" />
       <workItem from="1541953740632" duration="24624000" />
-      <workItem from="1542026303097" duration="5722000" />
+      <workItem from="1542026303097" duration="5997000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173828000" />
+    <option name="totallyTimeSpent" value="174103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -952,7 +929,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="-33">
           <caret line="88" column="147" selection-start-line="88" selection-start-column="147" selection-end-line="88" selection-end-column="147" />
         </state>
       </provider>
