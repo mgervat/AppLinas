@@ -193,7 +193,7 @@
           <entry key="env" value="3" />
           <entry key="json" value="194" />
           <entry key="php" value="3816" />
-          <entry key="twig" value="2076" />
+          <entry key="twig" value="2078" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -201,7 +201,7 @@
           <entry key="JSON" value="194" />
           <entry key="PHP" value="3816" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Twig" value="2076" />
+          <entry key="Twig" value="2078" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -600,7 +600,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542123292032" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542123363945" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -636,12 +636,12 @@
       <updated>1541655158044</updated>
       <workItem from="1541655159410" duration="143482000" />
       <workItem from="1541953740632" duration="24624000" />
-      <workItem from="1542026303097" duration="38431000" />
+      <workItem from="1542026303097" duration="38852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206537000" />
+    <option name="totallyTimeSpent" value="206958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
