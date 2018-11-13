@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use App\Form\ApplicationType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -40,7 +41,16 @@ class MemberProfilType extends ApplicationType
                 TextType::class,
                 $this->getConfiguration(true,'Avatar *', 'URL de votre avatar')
             )
-
+            ->add(
+                'presentation',
+                TextType::class,
+                $this->getConfiguration(true,'Présentation *', 'Présentez-vous brièvement')
+            )
+            ->add(
+                'description',
+                TextareaType::class,
+                $this->getConfiguration(true,'Description *', 'Description')
+            )
         ;
     }
 
