@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\EditoRepository;
 use App\Repository\GalleryRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
@@ -17,18 +18,20 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(ArticleRepository $repo, GalleryRepository $repog, UserRepository $repom, SliderRepository $repos)
+    public function index(ArticleRepository $repo, GalleryRepository $repog, UserRepository $repom, SliderRepository $repos, EditoRepository $repoe)
     {
         $articles = $repo->findBy(['valide' => '1'], ['createdAt' => 'DESC'], 3);
         $galleries = $repog->findBy([], ['id' => 'DESC'], 6);
         $members = $repom->findAll();
         $slider = $repos->findOneBy([]);
+        $edito = $repoe->findOneBy([], ['id' => 'DESC']);
 
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
             'galleries' => $galleries,
             'members' => $members,
-            'slider' => $slider
+            'slider' => $slider,
+            'edito' => $edito
         ]);
     }
 

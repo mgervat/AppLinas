@@ -219,8 +219,8 @@
     <section class="about-section">
         <div class="auto-container">
             <div class="sec-title text-center">
-                <h4 class="title">À propos de nous</h4>
-                <h2>Linas, mais autrement !</h2>
+                <h4 class="title">Edito</h4>
+                <h2>{{ edito.title }}</h2>
                 <div class="separator"><span class="flaticon-nature"></span></div>
             </div>
             <div class="row clearfix">
@@ -228,18 +228,15 @@
                 <!--Content Column-->
                 <div class="content-column col-md-6 col-sm-12 col-xs-12">
                     <div class="inner-box">
-                        <h3><a href="{{ path('about') }}">Text de présentation différent de celui dans About</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="{{ path('about') }}">Lire la suite</a>
+                        <p>{{ edito.content | nl2br }}</p>
                     </div>
                 </div>
 
                 <!--Image Column-->
                 <div class="image-column col-md-6 col-sm-12 col-xs-12">
                     <div class="image wow fadeInRight" data-wow-duration="1500ms">
-                        <figure class="image-1"><img src="/images/resource/about-1.png" alt=""></figure>
-                        <figure class="image-2"><img src="/images/resource/about-2.png" alt=""></figure>
+                        <figure class="image-1" style="margin-left: 50px"><img src="{{ edito.image }}" alt="{{ edito.title }}"></figure>
+                        <figure class="image-2" style="width: 300px; height: 300px"><img src="/images/resource/about-2.png" alt="Linas autrement"></figure>
                     </div>
                 </div>
             </div>
