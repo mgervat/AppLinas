@@ -44,17 +44,31 @@
 
 
                 <h3 class="menu-title">Site</h3><!-- /.menu-title -->
-                <li>
-                    <a href="{{ path('slider') }}"> <i class="fa fa-home"></i> Slider </a>
-                </li>
-                <li>
-                    <a href="{{ path('edito') }}"> <i class="fa fa-home"></i> Edito </a>
-                </li>
+                {% set access = "non" %}
+                {% for role in app.user.roles %}
+                    {% if role == "ROLE_MANAGER" %}
+                        {% set access = "MANAGER" %}
+                    {% endif %}
+                {% endfor %}
+
+                {% for role in app.user.roles %}
+                    {% if role == "ROLE_MASTER" %}
+                        {% set access = "MASTER" %}
+                    {% endif %}
+                {% endfor %}
+                {% if access == "MASTER" or access == "MANAGER" %}
+                    <li>
+                        <a href="{{ path('slider') }}"> <i class="fa fa-home"></i> Slider </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('edito') }}"> <i class="fa fa-home"></i> Edito </a>
+                    </li>
+                {% endif %}
                 <li>
                     <a href="{{ path('galleries') }}"> <i class="fa fa-image"></i> Galerie </a>
                 </li>
                 <li>
-                    <a href="{{ path('articles') }}"> <i class="fa fa-paper-plane"></i> Articles </a>
+                    <a href="{{ path('articles') }}"> <i class="fa fa-file"></i> Articles </a>
                 </li>
 
                 <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
@@ -68,9 +82,12 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Membre</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-list-ul"></i><a href="{{ path('members') }}">Liste des membres</a></li>
+                        {% if access == "MASTER" %}
+                            <li><i class="fa fa-plus"></i><a href="{{ path('member_register') }}">Nouveau membre</a></li>
+                        {% endif %}
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{ path('member_article', {'id':app.user.id}) }}">Vos Articles</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="#">Votre compte</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{ path('account_logout') }}">Logout</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{ path('member_profil', {'id':app.user.id}) }}">Votre profil</a></li>
+                        <li><i class="menu-icon fa fa-unlock"></i><a href="{{ path('account_logout') }}">Logout</a></li>
                     </ul>
                 </li>
             </ul>

@@ -89,7 +89,7 @@
                 </a>
 
                 <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Mon Profile</a>
+                    <a class="nav-link" href="{{ path('member_profil', {'id':app.user.id}) }}"><i class="fa fa- user"></i>Mon Profil</a>
 
                     <a class="nav-link" href="{{ path('member_article', {'id': app.user.id}) }}"><i class="fa fa- user"></i>Articles <span class="count">{{ app.user.articles | length }}</span></a>
 

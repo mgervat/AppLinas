@@ -9,11 +9,14 @@ use App\Entity\Gallery;
 use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\EditoType;
+use App\Form\MemberProfilType;
+use App\Form\MemberRegistrationType;
 use App\Form\SliderType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use App\Repository\EditoRepository;
 use App\Repository\GalleryRepository;
+use App\Repository\RoleRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -22,6 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends AbstractController
 {
@@ -304,6 +308,69 @@ class AdminController extends AbstractController
 
         return $this->render('admin/members.html.twig', [
             'members' => $members,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/register", name="member_register")
+     */
+    public function memberRegister(Request $request, RoleRepository $repo, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+        $roles = $repo->findAll();
+
+        $user = new User();
+
+        $form = $this->createForm(MemberRegistrationType::class, $user);
+
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $lerole = $request->request->get('role');
+            $role = $repo->findOneBy(['id' => $lerole]);
+
+            $admin = $repo->findOneBy(['title' => 'ROLE_ADMIN']);
+
+            $password = "password";
+            $hash = $encoder->encodePassword($user, $password);
+
+            if ($role->getId() != $admin->getId()) {
+                $user->addUserRole($admin);
+            }
+
+            $user->addUserRole($role)
+                 ->setPassword($hash);
+
+            $manager->persist($user);
+            $manager->flush();
+
+            return $this->redirectToRoute('members');
+        }
+
+        return $this->render('admin/account/member_register.html.twig', [
+            'roles' => $roles,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/account/{id}", name="member_profil")
+     */
+    public function memberProfil(User $user, Request $request, ObjectManager $manager) {
+        $connect = $this->getUser();
+        if($connect != $user) {
+            return $this->redirectToRoute('admin');
+        }
+        $form = $this->createForm(MemberProfilType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->flush();
+            $this->addFlash('success', 'Votre profil a bien été modifié');
+        }
+
+        return $this->render('admin/account/profile.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 

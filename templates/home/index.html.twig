@@ -2,6 +2,17 @@
 
 {% block title %}Association Linas Autrement, changeons notre ville ensemble!{% endblock %}
 
+{% block stylesheets %}
+    <style>
+        .edito
+        {
+            -webkit-column-count:3; /* Opera, Safari, Google Chrome */
+            -moz-column-count: 3; /* Firefox */
+            column-count: 3; /* Internet Explorer */
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
 
     <!--Main Slider-->
@@ -224,21 +235,20 @@
                 <div class="separator"><span class="flaticon-nature"></span></div>
             </div>
             <div class="row clearfix">
-
                 <!--Content Column-->
-                <div class="content-column col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-box">
+                <div class="col-12">
+                    <div class="edito">
                         <p>{{ edito.content | nl2br }}</p>
                     </div>
                 </div>
 
                 <!--Image Column-->
-                <div class="image-column col-md-6 col-sm-12 col-xs-12">
+                {#<div class="image-column col-md-6 col-sm-12 col-xs-12">
                     <div class="image wow fadeInRight" data-wow-duration="1500ms">
                         <figure class="image-1" style="margin-left: 50px"><img src="{{ edito.image }}" alt="{{ edito.title }}"></figure>
                         <figure class="image-2" style="width: 300px; height: 300px"><img src="/images/resource/about-2.png" alt="Linas autrement"></figure>
                     </div>
-                </div>
+                </div>#}
             </div>
         </div>
     </section>
