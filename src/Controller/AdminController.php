@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Comment;
+use App\Entity\Edito;
 use App\Entity\Gallery;
 use App\Entity\User;
 use App\Form\ArticleType;
+use App\Form\EditoType;
 use App\Form\SliderType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
+use App\Repository\EditoRepository;
 use App\Repository\GalleryRepository;
 use App\Repository\SliderRepository;
 use App\Repository\UserRepository;
@@ -32,10 +35,34 @@ class AdminController extends AbstractController
 
         $articles = $repository->findBy(['valide' => '0'], ['createdAt' => 'DESC']);
         return $this->render('admin/index.html.twig', [
-            'articles' => $articles,
-            'user' => $user
+            'articles' => $articles
         ]);
     }
+
+
+    /**
+     * @Route("/admin/edito", name="edito", methods="GET|POST")
+     */
+    public function edito(EditoRepository $repo, Request $request, ObjectManager $manager)
+    {
+        $edito = $repo->findOneBy([], ['id' => 'DESC']);
+        $form = $this->createForm(EditoType::class, $edito);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $manager->flush();
+
+            $this->addFlash('success', 'Edito bien modifié');
+
+        }
+
+        return $this->render('admin/edito.html.twig', [
+            'edito' => $edito,
+            'form' => $form->createView()
+        ]);
+    }
+
 
     /**
      * @Route("/admin/galleries", name="galleries")
@@ -61,8 +88,7 @@ class AdminController extends AbstractController
 
         $galleries = $repository->findBy([], ['id' => 'DESC']);
         return $this->render('admin/galleries.html.twig', [
-            'galleries' => $galleries,
-            'user' => $user
+            'galleries' => $galleries
         ]);
     }
 
@@ -90,8 +116,7 @@ class AdminController extends AbstractController
         $user = $this->getUser();
 
         return $this->render('admin/validate.html.twig', [
-            'article' => $article,
-            'user' => $user
+            'article' => $article
         ]);
     }
 
@@ -120,8 +145,7 @@ class AdminController extends AbstractController
 
         $articles = $repository->findBy([], ['createdAt' => 'DESC']);
         return $this->render('admin/articles.html.twig', [
-            'articles' => $articles,
-            'user' => $user
+            'articles' => $articles
         ]);
     }
 
@@ -153,7 +177,6 @@ class AdminController extends AbstractController
 
         return $this->render('admin/article_new.html.twig', [
             'article' => $article,
-            'user' => $user,
             'form' => $form->createView()
         ]);
 
@@ -164,11 +187,9 @@ class AdminController extends AbstractController
      */
     public function articleRead(Article $article)
     {
-        $user = $this->getUser();
 
         return $this->render('admin/validate.html.twig', [
-            'article' => $article,
-            'user' => $user
+            'article' => $article
         ]);
     }
 
@@ -177,7 +198,6 @@ class AdminController extends AbstractController
      */
     public function articleEdit(Article $article, Request $request, ObjectManager $manager)
     {
-        $user = $this->getUser();
 
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
@@ -195,7 +215,6 @@ class AdminController extends AbstractController
 
         return $this->render('admin/article_edit.html.twig', [
             'article' => $article,
-            'user' => $user,
             'form' => $form->createView()
         ]);
     }
@@ -220,12 +239,10 @@ class AdminController extends AbstractController
      * @Route("/admin/comments", name="comments")
      */
     public function comments(ArticleRepository $repository) {
-        $user = $this->getUser();
 
         $articles = $repository->findBy(['valide' => '1'], ['createdAt' => 'DESC']);
         return $this->render('admin/comments.html.twig', [
             'articles' => $articles,
-            'user' => $user
         ]);
     }
 
@@ -233,14 +250,12 @@ class AdminController extends AbstractController
      * @Route("/admin/details-{id}", name="details")
      */
     public function commentsDetails($id, CommentRepository $repository, ArticleRepository $repo) {
-        $user = $this->getUser();
 
         $article = $repo->findOneBy(['id' => $id]);
         $comments = $repository->findBy(['article' => $id], ['createdAt' => 'DESC']);
         return $this->render('admin/comments_details.html.twig', [
             'comments' => $comments,
-            'article' => $article,
-            'user' => $user
+            'article' => $article
         ]);
     }
 
@@ -266,11 +281,9 @@ class AdminController extends AbstractController
      * @Route("/admin/users", name="users")
      */
     public function users(UserRepository $repository) {
-        $user = $this->getUser();
         $users = $repository->findBy([], ['id' => 'DESC']);
         return $this->render('admin/users.html.twig', [
             'users' => $users,
-            'user' => $user
         ]);
     }
 
@@ -278,9 +291,7 @@ class AdminController extends AbstractController
      * @Route("/admin/user/{id}", name="user_comments")
      */
     public function userComments(User $userComment) {
-        $user = $this->getUser();
         return $this->render('admin/user_comments.html.twig', [
-            'user' => $user,
             'userComment' => $userComment
         ]);
     }
@@ -289,12 +300,10 @@ class AdminController extends AbstractController
      * @Route("/admin/members", name="members")
      */
     public function members(UserRepository $repository) {
-        $user = $this->getUser();
         $members = $repository->findBy([], ['lastname' => 'ASC']);
 
         return $this->render('admin/members.html.twig', [
             'members' => $members,
-            'user' => $user
         ]);
     }
 
@@ -303,14 +312,11 @@ class AdminController extends AbstractController
      */
     public function memberArticle(User $member,  ArticleRepository $repository)
     {
-        $user = $this->getUser();
-
 
         $articles = $repository->findBy(['author' => $member], ['createdAt' => 'DESC']);
         return $this->render('admin/member_article.html.twig', [
             'articles' => $articles,
-            'member' => $member,
-            'user' => $user
+            'member' => $member
         ]);
     }
 
@@ -318,7 +324,6 @@ class AdminController extends AbstractController
      * @Route("/admin/slider", name="slider")
      */
     public function slider(Request $request, SliderRepository $repository, ObjectManager $manager) {
-        $user = $this->getUser();
         $slider = $repository->findOneBy([]);
 
         $form = $this->createForm(SliderType::class, $slider);
@@ -333,7 +338,6 @@ class AdminController extends AbstractController
 
         return $this->render('admin/slider.html.twig', [
             'slider' => $slider,
-            'user' => $user,
             'form' => $form->createView()
         ]);
     }

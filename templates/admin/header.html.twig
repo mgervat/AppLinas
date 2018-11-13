@@ -85,13 +85,13 @@
         <div class="col-sm-5">
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle" src="{{ user.picture }}" alt="User Avatar">
+                    <img class="user-avatar rounded-circle" src="{{ app.user.picture }}" alt="User Avatar">
                 </a>
 
                 <div class="user-menu dropdown-menu">
                     <a class="nav-link" href="#"><i class="fa fa- user"></i>Mon Profile</a>
 
-                    <a class="nav-link" href="{{ path('member_article', {'id':app.user.id}) }}"><i class="fa fa- user"></i>Articles <span class="count">{{ user.articles | length }}</span></a>
+                    <a class="nav-link" href="{{ path('member_article', {'id': app.user.id}) }}"><i class="fa fa- user"></i>Articles <span class="count">{{ app.user.articles | length }}</span></a>
 
                     <a class="nav-link" href="{{ path('account_logout') }}"><i class="fa fa-power -off"></i>Logout</a>
                 </div>
