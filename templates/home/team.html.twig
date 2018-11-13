@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Linas Autrement, les membres{% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock %}
 
 {% block body %}
 
@@ -24,21 +26,28 @@
 
                 {% for member in members %}
                     {% if member.userRoles.count() > 0 %}
+
                         <!--Volunteer Member-->
-                        <div class="volunteer-member col-md-6 col-sm-6 col-xs-12">
-                            <div class="inner-box clearfix">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{ member.picture }}" alt=""></figure>
+                        <div class="w3-container" style="margin-bottom: 60px;">
+
+                            <div class="w3-card-4" style="width:100%; border: 20px solid white">
+                                <header class="w3-container" style="background-color: #e94c4c; color: white">
+                                    <h3>{{ member.firstname }} {{ member.lastname }}</h3>
+                                    <p style="color: black; margin-bottom: 10px">{{ member.username }}</p>
+                                </header>
+                                <div class="w3-container">
+                                    <p>{{ member.presentation }}</p>
+                                    <hr>
+                                    <img src="{{ member.picture }}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                                    <p style="color: black">{{ member.description }}</p><br>
                                 </div>
-                                <div class="info-box">
-                                    <h3 class="name">{{ member.firstname }} {{ member.lastname }}</h3>
-                                    <p>{{ member.username }}</p>
-                                    <span class="desingnation">Fonction: {{ member.job }}</span>
-                                </div>
+                                <button class="w3-button w3-block" style="background-color: #68916a; color: white">{{ member.job }}</button>
                             </div>
                         </div>
+                        
                     {% endif %}
                 {% endfor %}
+
 
             </div>
         </div>

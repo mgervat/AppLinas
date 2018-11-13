@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcedb101-2ab4-4d78-a799-e88130e6d923" name="Default Changelist" comment="" />
+    <list default="true" id="bcedb101-2ab4-4d78-a799-e88130e6d923" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/team.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/team.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +196,7 @@
           <entry key="env" value="3" />
           <entry key="json" value="194" />
           <entry key="php" value="3816" />
-          <entry key="twig" value="2078" />
+          <entry key="twig" value="2229" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -201,7 +204,7 @@
           <entry key="JSON" value="194" />
           <entry key="PHP" value="3816" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Twig" value="2078" />
+          <entry key="Twig" value="2229" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -211,7 +214,7 @@
           <entry key="json" value="3" />
           <entry key="php" value="50" />
           <entry key="rating_user" value="1" />
-          <entry key="twig" value="50" />
+          <entry key="twig" value="51" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
@@ -221,7 +224,7 @@
           <entry key="JSON" value="3" />
           <entry key="PHP" value="50" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Twig" value="50" />
+          <entry key="Twig" value="51" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -250,11 +253,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="236" column="38" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/home/team.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+              <folding>
+                <element signature="e#973#1001#0#HTML" expanded="true" />
+                <element signature="e#1056#1100#0#HTML" expanded="true" />
+                <element signature="e#1163#1210#0#HTML" expanded="true" />
+                <element signature="e#1341#1382#0#HTML" expanded="true" />
+                <element signature="e#1493#1511#0#HTML" expanded="true" />
+                <element signature="e#1802#1822#0#HTML" expanded="true" />
+                <element signature="e#1941#1988#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -359,7 +380,6 @@
         <option value="$PROJECT_DIR$/config/bundles.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/ArticleFixture.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/templates/home/team.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/CommentType.php" />
         <option value="$PROJECT_DIR$/src/Repository/RatingRepository.php" />
         <option value="$PROJECT_DIR$/templates/home/about.html.twig" />
@@ -390,6 +410,7 @@
         <option value="$PROJECT_DIR$/templates/admin/account/profile.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/team.html.twig" />
       </list>
     </option>
   </component>
@@ -600,7 +621,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542123363945" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542129331981" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -636,18 +657,18 @@
       <updated>1541655158044</updated>
       <workItem from="1541655159410" duration="143482000" />
       <workItem from="1541953740632" duration="24624000" />
-      <workItem from="1542026303097" duration="38852000" />
+      <workItem from="1542026303097" duration="41909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206958000" />
+    <option name="totallyTimeSpent" value="210015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -664,7 +685,7 @@
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.28958786" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.28958786" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24950364" />
@@ -734,13 +755,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/team.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="73" selection-start-line="35" selection-start-column="73" selection-end-line="35" selection-end-column="73" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/CommentType.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1071,6 +1085,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="236" column="38" selection-start-line="236" selection-start-column="38" selection-end-line="236" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/team.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+          <folding>
+            <element signature="e#973#1001#0#HTML" expanded="true" />
+            <element signature="e#1056#1100#0#HTML" expanded="true" />
+            <element signature="e#1163#1210#0#HTML" expanded="true" />
+            <element signature="e#1341#1382#0#HTML" expanded="true" />
+            <element signature="e#1493#1511#0#HTML" expanded="true" />
+            <element signature="e#1802#1822#0#HTML" expanded="true" />
+            <element signature="e#1941#1988#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

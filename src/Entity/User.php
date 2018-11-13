@@ -91,6 +91,16 @@ class User implements UserInterface
      */
     private $rating;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $presentation;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
 
     public function getFullName() {
         return "{$this->firstname} {$this->lastname}";
@@ -350,6 +360,30 @@ class User implements UserInterface
         if ($this->rating->contains($rating)) {
             $this->rating->removeElement($rating);
         }
+
+        return $this;
+    }
+
+    public function getPresentation(): ?string
+    {
+        return $this->presentation;
+    }
+
+    public function setPresentation(?string $presentation): self
+    {
+        $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
