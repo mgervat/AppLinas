@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcedb101-2ab4-4d78-a799-e88130e6d923" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/actions.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/actions.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +195,7 @@
           <entry key="env" value="3" />
           <entry key="json" value="194" />
           <entry key="php" value="4252" />
-          <entry key="twig" value="4573" />
+          <entry key="twig" value="4577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -203,7 +203,7 @@
           <entry key="JSON" value="194" />
           <entry key="PHP" value="4252" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Twig" value="4573" />
+          <entry key="Twig" value="4577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -252,11 +252,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="239" column="24" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="24" />
+            <state relative-caret-position="323">
+              <caret line="238" column="16" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -288,11 +288,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/home/actions.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="103" />
+            <state relative-caret-position="187">
+              <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
               <folding>
                 <element signature="e#1197#1299#0#HTML" expanded="true" />
                 <element signature="e#1401#1427#0#HTML" expanded="true" />
@@ -373,8 +373,8 @@
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/templates/account/registration.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/templates/home/actions.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/actions.html.twig" />
       </list>
     </option>
   </component>
@@ -585,7 +585,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542221454421" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542222259462" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -621,12 +621,12 @@
       <updated>1541655158044</updated>
       <workItem from="1541655159410" duration="143482000" />
       <workItem from="1541953740632" duration="24624000" />
-      <workItem from="1542026303097" duration="63821000" />
+      <workItem from="1542026303097" duration="64472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231927000" />
+    <option name="totallyTimeSpent" value="232578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1070,21 +1070,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="238" column="16" selection-start-line="238" selection-start-column="16" selection-end-line="238" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home/actions.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="103" />
+        <state relative-caret-position="187">
+          <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
           <folding>
             <element signature="e#1197#1299#0#HTML" expanded="true" />
             <element signature="e#1401#1427#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="239" column="24" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="24" />
         </state>
       </provider>
     </entry>
