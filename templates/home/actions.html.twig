@@ -2,6 +2,17 @@
 
 {% block title %}Association Linas Autrement, Nos Actions{% endblock %}
 
+{% block stylesheets %}
+    <style>
+        .texte
+        {
+            -webkit-column-count:2; /* Opera, Safari, Google Chrome */
+            -moz-column-count: 2; /* Firefox */
+            column-count: 2; /* Internet Explorer */
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
 
     <!--Page Title-->
@@ -31,7 +42,7 @@
                         <div class="work-block">
                             <div class="inner" ref="/images/resource/work-1.jpg">
                                 <img src="/images/icons/wind-2.png" alt="" class="icon">
-                                <h4><a href="#">Wind Energy</a></h4>
+                                <h4><a href="#">Urbanisme</a></h4>
                                 <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
                                 <button type="button" class="btn btn-primary" ref="section1">
                                     Lire
@@ -57,9 +68,8 @@
                         <div class="work-block">
                             <div class="inner" ref="/images/resource/work-3.jpg">
                                 <img src="/images/icons/save-2.png" alt="" class="icon">
-                                <h4><a href="#">Save Forest 2</a></h4>
+                                <h4><a href="#">Commerce</a></h4>
                                 <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
-                                <a href="#" class="read-more">Learn More</a>
                                 <button type="button" class="btn btn-primary" ref="section3">
                                     Lire
                                 </button>
@@ -71,7 +81,6 @@
                                 <img src="/images/icons/water-2.png" alt="" class="icon">
                                 <h4><a href="#">Water Refine</a></h4>
                                 <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
-                                <a href="#" class="read-more">Learn More</a>
                                 <button type="button" class="btn btn-primary" ref="section4">
                                     Lire
                                 </button>
@@ -91,30 +100,12 @@
     <!-- End Work Section -->
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="width: 60%">
+        <div class="modal-dialog" role="document" style="width: 80%">
         <div class="modal-content">
 
-            <!--About Section-->
             <section id="section1" class="about-section style-two">
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <!--Content Column-->
-                        <div class="content-column">
-                            <div class="inner-box">
-                                <div class="sec-title" style="width: 100%; text-align: center">
-                                    <h4 class="title">About</h4>
-                                    <h2>Helping Animals &amp; Working On Environmental section 1</h2>
-                                    <div class="separator"><span class="flaticon-nature"></span></div>
-                                </div>
-                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
-                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
-                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include 'partials/_include_urbanisme.html.twig' %}
             </section>
-            <!--End About Section-->
 
             <!--About Section-->
             <section id="section2" class="about-section style-two">
@@ -140,23 +131,7 @@
 
             <!--About Section-->
             <section id="section3" class="about-section style-two">
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <!--Content Column-->
-                        <div class="content-column">
-                            <div class="inner-box">
-                                <div class="sec-title" style="width: 100%; text-align: center">
-                                    <h4 class="title">About</h4>
-                                    <h2>Helping Animals &amp; Working On Environmental section 3</h2>
-                                    <div class="separator"><span class="flaticon-nature"></span></div>
-                                </div>
-                                <p>Capitalize on low hanging fruit to identify a ballpark value added tivity to beta test. Override the digital divide with tional clickthroughs from DevOps. Nanotechnology</p>
-                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.gence on cross-platform integration.</p>
-                                <a href="{{ path('donate') }}" class="theme-btn btn-style-two">Faire un Don</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include 'partials/_include_commerce.html.twig' %}
             </section>
             <!--End About Section-->
 
