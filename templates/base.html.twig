@@ -1,270 +1,270 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <!-- Stylesheets -->
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
-        <link href="/plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
-        <link href="/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
-        <link href="/css/style.css" rel="stylesheet">
-        <link href="/css/responsive.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Stylesheets -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+    <link href="/plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+    <link href="/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
 
-        <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-        <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-        <!-- Responsive -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-        <!--[if lt IE 9]><script src="/js/respond.js"></script><![endif]-->
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="/js/respond.js"></script><![endif]-->
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
 
-        <div class="page-wrapper">
+<div class="page-wrapper">
 
 
-            <!-- Main Header-->
-            <header class="main-header header-style-one">
-                <!--Top-bar -->
-                <div class="header-top">
-                    <div class="auto-container">
-                        <div class="inner-container clearfix">
-                            <div class="top-left">
-                                <ul class="clearfix">
-                                    <li><i class="flaticon-smartphone"></i><a href="#">01 51 51 51 51 </a></li>
-                                    <li><i class="flaticon-e-mail-envelope"></i><a href="#">contact@linas-autrement.fr </a></li>
-                                </ul>
-                            </div>
-                            <div class="top-right">
+    <!-- Main Header-->
+    <header class="main-header header-style-one">
+        <!--Top-bar -->
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <div class="top-left">
+                        <ul class="clearfix">
+                            <li><i class="flaticon-smartphone"></i><a href="#">01 51 51 51 51 </a></li>
+                            <li><i class="flaticon-e-mail-envelope"></i><a href="#">contact@linas-autrement.fr </a></li>
+                        </ul>
+                    </div>
+                    <div class="top-right">
 
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Main Box -->
-                <div class="header-lower">
-                    <div class="auto-container">
-                        <div class="main-box clearfix">
-                            <!--Logo Box-->
-                            <div class="logo-box">
-                                <div class="logo"><a href="{{ path('home') }}"><img src="/images/logo.png" alt=""></a></div>
-                            </div>
-                            <!--Nav Outer-->
-                            <div class="nav-outer clearfix">
-                                <!-- Main Menu -->
-                                <nav class="main-menu">
-                                    <div class="navbar-header">
-                                        <!-- Toggle Button -->
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                    </div>
-
-                                    <div class="navbar-collapse collapse clearfix">
-                                        <ul class="navigation pull-left clearfix">
-                                            <li><a href="{{ path('home') }}">Accueil</a>
-                                            </li>
-                                            <li class="dropdown"><a href="#">À propos de nous</a>
-                                                <ul>
-                                                    <li><a href="{{ path('about') }}">L'association</a></li>
-                                                    <li><a href="{{ path('team') }}">Les adhérents</a></li>
-                                                    <li><a href="{{ path('donate') }}">Faire un don</a></li>
-                                                    <li><a href="{{ path('actions') }}">Nos actions</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{{ path('actions') }}">Nos actions</a></li>
-                                            <li><a href="{{ path('gallery') }}">Galerie</a></li>
-                                        </ul>
-
-                                        <ul class="navigation pull-right clearfix">
-                                            <li><a href="{{ path('blog') }}">Actualités</a>
-                                            </li>
-                                            <li><a href="{{ path('contact') }}">Contact</a>
-                                            </li>
-                                            {% if app.user %}
-                                                <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
-                                                    <ul>
-                                                        <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
-                                                        <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
-                                                    </ul>
-                                                </li>
-                                            {% else %}
-                                                <li><a href="{{ path('account_login') }}">Connexion</a></li>
-                                                <li><a href="{{ path('account_register') }}">Inscription</a></li>
-                                            {% endif %}
-                                        </ul>
-                                    </div>
-
-                                </nav>
-                                <!-- Main Menu End-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sticky Header -->
-                <div class="sticky-header">
-                    <div class="auto-container clearfix">
-                        <!--Logo-->
-                        <div class="logo pull-left">
-                            <a href="{{ path('home') }}" title=""><img src="/images/logo-small.png" alt="" title=""></a>
-                        </div>
-                        <!--Right Col-->
-                        <div class="pull-right">
-                            <!-- Main Menu -->
-                            <nav class="main-menu">
-                                <div class="navbar-header">
-                                    <!-- Toggle Button -->
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-
-                                <div class="navbar-collapse collapse clearfix">
-                                    <ul class="navigation pull-left clearfix">
-                                        <li><a href="{{ path('home') }}">Accueil</a>
-                                        </li>
-                                        <li class="dropdown"><a href="#">À propos de nous</a>
-                                            <ul>
-                                                <li><a href="{{ path('about') }}">L'association</a></li>
-                                                <li><a href="{{ path('team') }}">Les adhérents</a></li>
-                                                <li><a href="{{ path('donate') }}">Faire un don</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{ path('actions') }}">Nos actions</a></li>
-                                        <li><a href="{{ path('gallery') }}">Galerie</a></li>
-                                        <li><a href="{{ path('blog') }}">Actualités</a>
-                                        </li>
-                                        <li><a href="{{ path('contact') }}">Contact</a>
-                                        </li>
-                                        {% if app.user %}
-                                            <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
-                                                <ul>
-                                                    <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
-                                                    <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
-                                                </ul>
-                                            </li>
-                                        {% else %}
-                                            <li><a href="{{ path('account_login') }}">Connexion</a></li>
-                                            <li><a href="{{ path('account_register') }}">Inscription</a></li>
-                                        {% endif %}
-                                    </ul>
-                                </div>
-                            </nav>
-                            <!-- Main Menu End-->
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!--End Main Header -->
-
-            {% block body %}{% endblock %}
-
-
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <div class="auto-container">
-
-                    <!--Widgets Section-->
-                    <div class="widgets-section">
-                        <div class="row clearfix">
-                            <!--Big Column-->
-                            <div class="big-column col-md-6 col-sm-12 col-xs-12">
-                                <div class="row clearfix">
-
-                                    <!--Footer Column-->
-                                    <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="footer-widget about-widget">
-                                            <div class="footer-logo">
-                                                <figure>
-                                                    <a href="{{ path('home') }}"><img src="/images/footer-logo.png" alt=""></a>
-                                                </figure>
-                                            </div>
-                                            <div class="widget-content">
-                                                <ul class="contact-info">
-                                                    <li>Linas 91310</li>
-                                                    <li><a href="{{ path('contact') }}">Email: contact@linas-autrement.fr</a></li>
-                                                    <li>Phone: 01 51 51 51 51</li>
-                                                    <li>Fax: 01 52 52 52 52</li>
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Footer Column-->
-                                    <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="footer-widget links-widget">
-                                            <h2 class="widget-title">Plans de site</h2>
-                                            <div class="widget-content">
-                                                <ul class="list">
-                                                    <li><a href="{{ path('home') }}">Home</a></li>
-                                                    <li><a href="{{ path('actions') }}">Actions</a></li>
-                                                    <li><a href="{{ path('donate') }}">Dons</a></li>
-                                                    <li><a href="{{ path('team') }}">Adhérents</a></li>
-                                                    <li><a href="{{ path('contact') }}">Contact</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Big Column-->
-                            <div class="big-column col-md-6 col-sm-12 col-xs-12">
-                                <div class="row clearfix">
-
-                                    <!--Footer Column-->
-                                    <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="footer-widget gallery-widget">
-                                            <h2 class="widget-title">Instagram</h2>
-                                            <div class="widget-content">
-                                                <div class="insta-carousel owl-carousel owl-theme">
-                                                    {{ render(controller(
-                                                        'App\\Controller\\HomeController::sidebarGalleries'
-                                                    )) }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Footer Bottom-->
-                <div class="footer-bottom">
-                    <div class="auto-container clearfix">
-                        <div class="copyright-text">&copy; <a href="{{ path('home') }}">GERVAT</a> 2018. All rights reserved.</div>
-                        <div class="bottom-links">
-                            <ul class="clearfix">
-                                <li><a href="{{ path('about') }}">À propos de nous</a></li>
-                                <li><a href="{{ path('donate') }}">Faire un don</a></li>
-                                <li><a href="{{ path('contact') }}">Nous contacter</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- End Main Footer -->
-
+            </div>
         </div>
 
+        <!-- Main Box -->
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="main-box clearfix">
+                    <!--Logo Box-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="{{ path('home') }}"><img src="/images/logo.png" alt=""></a></div>
+                    </div>
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
 
-        <!--Scroll to top-->
-        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-caret-up"></span></div>
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation pull-left clearfix">
+                                    <li><a href="{{ path('home') }}">Accueil</a>
+                                    </li>
+                                    <li class="dropdown"><a href="#">À propos de nous</a>
+                                        <ul>
+                                            <li><a href="{{ path('about') }}">L'association</a></li>
+                                            <li><a href="{{ path('team') }}">Les adhérents</a></li>
+                                            <li><a href="{{ path('donate') }}">Faire un don</a></li>
+                                            <li><a href="{{ path('actions') }}">Nos actions</a></li>
+                                        </ul>
+                                    </li>
 
-        <script src="/js/jquery.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+                                    <li><a href="{{ path('gallery') }}">Galerie</a></li>
+                                </ul>
 
-        {% block javascripts %}{% endblock %}
-    </body>
+                                <ul class="navigation pull-right clearfix">
+                                    <li><a href="{{ path('blog') }}">Blog</a>
+                                    </li>
+                                    <li><a href="{{ path('contact') }}">Contact</a>
+                                    </li>
+                                    {% if app.user %}
+                                        <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
+                                            <ul>
+                                                <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
+                                                <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
+                                            </ul>
+                                        </li>
+                                    {% else %}
+                                        <li><a href="{{ path('account_login') }}">Connexion</a></li>
+                                        <li><a href="{{ path('account_register') }}">Inscription</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+                        </nav>
+                        <!-- Main Menu End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Header -->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo pull-left">
+                    <a href="{{ path('home') }}" title=""><img src="/images/logo-small.png" alt="" title=""></a>
+                </div>
+                <!--Right Col-->
+                <div class="pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <div class="navbar-header">
+                            <!-- Toggle Button -->
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation pull-left clearfix">
+                                <li><a href="{{ path('home') }}">Accueil</a>
+                                </li>
+                                <li class="dropdown"><a href="#">À propos de nous</a>
+                                    <ul>
+                                        <li><a href="{{ path('about') }}">L'association</a></li>
+                                        <li><a href="{{ path('team') }}">Les adhérents</a></li>
+                                        <li><a href="{{ path('donate') }}">Faire un don</a></li>
+                                        <li><a href="{{ path('actions') }}">Nos actions</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ path('gallery') }}">Galerie</a></li>
+                                <li><a href="{{ path('blog') }}">Blog</a>
+                                </li>
+                                <li><a href="{{ path('contact') }}">Contact</a>
+                                </li>
+                                {% if app.user %}
+                                    <li class="dropdown" style="background-color: #00a67c;"><a href="#">Bienvenue {{ app.user.firstname }}</a>
+                                        <ul>
+                                            <li><a href="{{ path('account_profile') }}">Votre profil</a></li>
+                                            <li><a href="{{ path('account_logout') }}">Déconnexion</a></li>
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{ path('account_login') }}">Connexion</a></li>
+                                    <li><a href="{{ path('account_register') }}">Inscription</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- Main Menu End-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End Main Header -->
+
+    {% block body %}{% endblock %}
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="auto-container">
+
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row clearfix">
+                    <!--Big Column-->
+                    <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget about-widget">
+                                    <div class="footer-logo">
+                                        <figure>
+                                            <a href="{{ path('home') }}"><img src="/images/footer-logo.png" alt=""></a>
+                                        </figure>
+                                    </div>
+                                    <div class="widget-content">
+                                        <ul class="contact-info">
+                                            <li>Linas 91310</li>
+                                            <li><a href="{{ path('contact') }}">Email: contact@linas-autrement.fr</a></li>
+                                            <li>Phone: 01 51 51 51 51</li>
+                                            <li>Fax: 01 52 52 52 52</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget links-widget">
+                                    <h2 class="widget-title">Plans de site</h2>
+                                    <div class="widget-content">
+                                        <ul class="list">
+                                            <li><a href="{{ path('home') }}">Home</a></li>
+                                            <li><a href="{{ path('actions') }}">Actions</a></li>
+                                            <li><a href="{{ path('donate') }}">Dons</a></li>
+                                            <li><a href="{{ path('team') }}">Adhérents</a></li>
+                                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Big Column-->
+                    <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget gallery-widget">
+                                    <h2 class="widget-title">Instagram</h2>
+                                    <div class="widget-content">
+                                        <div class="insta-carousel owl-carousel owl-theme">
+                                            {{ render(controller(
+                                                'App\\Controller\\HomeController::sidebarGalleries'
+                                            )) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer Bottom-->
+        <div class="footer-bottom">
+            <div class="auto-container clearfix">
+                <div class="copyright-text">&copy; <a href="{{ path('home') }}">GERVAT</a> 2018. All rights reserved.</div>
+                <div class="bottom-links">
+                    <ul class="clearfix">
+                        <li><a href="{{ path('about') }}">À propos de nous</a></li>
+                        <li><a href="{{ path('donate') }}">Faire un don</a></li>
+                        <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Main Footer -->
+
+</div>
+
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-caret-up"></span></div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
 </html>
