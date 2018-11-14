@@ -1,7 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Linas Autrement, inscription{% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <style>
+        .disbled {
+            background-color: #3a3a3a;
+            border-color: #3a3a3a;
+        }
+        .check {
+            font-size: 2em;
+            color: #f4f4f4;
+            margin-top: 35px;
+            display: block;
+            line-height: 35px;
+            text-align: center;
+            width: 35px;
+            height: 35px;
+            vertical-align: middle;
+            border: 1px solid #f4f4f4;
+            border-radius: 50%;
+        }
+        .check-active {
+            color: lightgreen;
+            border: 1px solid lightgreen;
+        }
+        .bg-danger {
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            padding-left: 6px;
+            margin-left: 25px;
+            margin-right: 60px;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
 
@@ -23,19 +55,90 @@
             <div class="row clearfix">
 
                 <!--Column-->
-                <div class="form-column col-md-6 col-sm-12 col-xs-12">
+                <div class="form-column col-md-12 col-sm-12 col-xs-12">
                     <div class="inner-column">
+
                         <h3>Création d'un nouveau compte</h3>
-                        <p>Consectetur adipiscing elit. Pellentesque lobortis, nisl at ullamcorper egestas, felis tortor adipiscing dolor, a interdum lorem urna quis magna. Integer eget arcu Integer eget arcu sit amet Integer commodo.</p>
+
                         <!-- Contact Form -->
                         <div class="contact-form">
                             <!--Contact Form-->
                             {{ form_start(form) }}
 
-                            {{ form_widget(form) }}
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group">
+                            {{ form_row(form.firstname) }}
+                            </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group">
+                                {{ form_row(form.lastname) }}
+                            </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-                                <button type="submit" class="theme-btn btn-style-two">Enregistrer</button>
+                                {{ form_row(form.picture) }}
+                            </div>
+
+                            <div style="clear: both"></div>
+
+                            <div class="row" style="margin-bottom: 30px">
+
+                                <div class="col-12" style="height: 30px">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="d-inline p-2 bg-danger registration_username"></div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="d-inline bg-danger registration_email"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                        {{ form_row(form.username) }}
+                                    </div>
+                                    <div id="check-username" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <i class="fa fa-check check check-registration_username"></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                        {{ form_row(form.email) }}
+                                    </div>
+                                    <div  id="check-email"class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <i class="fa fa-check check check-registration_email"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12" style="height: 30px">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="d-inline bg-danger registration_password"></div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="d-inline bg-danger registration_passwordConfirm"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                        {{ form_row(form.password) }}
+                                    </div>
+                                    <div id="check-password1" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <i class="fa fa-check check check-registration_password"></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                        {{ form_row(form.passwordConfirm) }}
+                                    </div>
+                                    <div id="checkpassword2" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <i class="fa fa-check check check-registration_passwordConfirm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <button id="submit" type="submit" class="theme-btn btn-style-two disbled" disabled>Enregistrer</button>
                             </div>
 
                             {{ form_end(form) }}
@@ -46,47 +149,6 @@
                     </div>
                 </div>
 
-                <!--Column-->
-                <div class="info-column col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <!--Map Section-->
-                        <div class="map-area">
-                            <!--Map Outer-->
-                            <div class="map-outer">
-                                <!--Map Canvas-->
-                                <div class="map-canvas"
-                                     data-zoom="12"
-                                     data-lat="-37.817085"
-                                     data-lng="144.955631"
-                                     data-type="roadmap"
-                                     data-hue="#ffc400"
-                                     data-title="Envato"
-                                     data-icon-path="/images/icons/map-marker.png"
-                                     data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Map Section-->
-                        <div class="contact-info">
-                            <div class="row clearfix">
-                                <div class="column col-md-6 col-sm-6 col-xs-12">
-                                    <h4>Addresse</h4>
-                                    <p>LINAS 91310</p>
-                                </div>
-                                <div class="column col-md-6 col-sm-6 col-xs-12">
-                                    <h4>Tel :</h4>
-                                    <p>01 51 51 51 51</p>
-                                    <p>01 51 51 51 51</p>
-                                </div>
-                                <div class="column col-md-6 col-sm-6 col-xs-12">
-                                    <h4>Email</h4>
-                                    <p>contact@linas-autrement.fr</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -100,4 +162,46 @@
     <script src="/js/wow.js"></script>
     <script src="/js/appear.js"></script>
     <script src="/js/script.js"></script>
+
+    <script>
+        $(document).ready(
+            var erreur;
+
+            $("#registration_username, #registration_email, #registration_password").keyup(function (event) {
+                var valeur = $(this).val()
+                if (valeur.length > 4){
+
+                    var name = $(this).attr("id")
+                    $.ajax({
+                        url:        '/ajax/registration',
+                        type:       'POST',
+                        data: {'mot': valeur},
+                        success: function(data) {
+                            if (data > 0) {
+                                erreur = 1
+                                var html = "";
+                                if (name == "registration_email" || name == "registration_username") {
+                                    html = "<span>Déjà utilisé!</span>"
+                                } else {
+                                    html = "Mots de passe non identiques!"
+                                }
+                                $("." + name).html(html)
+                                $(".check-" + name).removeClass("check-active")
+                            } else {
+                                $("." + name).html("")
+                                $(".check-" + name).addClass("check-active")
+                            }
+                        },
+                        error : function(xhr, textStatus, errorThrown) {
+                            alert('Ajax request failed.');
+                        }
+                    });
+
+                }
+            })
+
+
+        )
+
+    </script>
 {% endblock %}

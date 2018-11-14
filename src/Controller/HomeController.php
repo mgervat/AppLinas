@@ -105,4 +105,15 @@ class HomeController extends AbstractController
             'galleries' => $galleries
         ]);
     }
+
+    /**
+     * @Route("ajax/registration")
+     */
+    public function ajaxRegistration (Request $request, UserRepository $repository) {
+
+        $mot = $request->request->get('mot');
+        $user = $repository->findBy(['username' => $mot]);
+
+        return new Response(count($user));
+    }
 }
