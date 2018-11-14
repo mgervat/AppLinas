@@ -10,6 +10,10 @@
             -moz-column-count: 2; /* Firefox */
             column-count: 2; /* Internet Explorer */
         }
+        .bordure {
+            border: 1px solid #e5e3e3; border-radius: 5px;
+            padding: 6px;
+        }
     </style>
 {% endblock %}
 
@@ -41,13 +45,14 @@
                 <div style="width: 30%; margin-left: auto; margin-right: auto; margin-bottom: -60px">
 
                     <div class="work-block">
-                        <div class="inner" ref="/images/resource/work-3.jpg" style="text-align: center">
+                        <div class="inner bordure" ref="/images/resource/work-4.jpg" style="text-align: center;">
                             <img src="/images/icons/save-2.png" alt="" class="icon">
                             <h4><a href="#">Sécurité</a></h4>
                             <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
                             <button type="button" class="btn btn-primary" ref="section5">
                                 Lire
                             </button>
+                            <br><br>
                         </div>
                     </div>
 
@@ -67,7 +72,7 @@
                         </div>
 
                         <div class="work-block">
-                            <div class="inner" ref="/images/resource/work-2.jpg">
+                            <div class="inner" ref="https://picsum.photos/480/590?image=352">
                                 <img src="/images/icons/recycle-2.png" alt="" class="icon">
                                 <h4><a href="#">Circulation</a></h4>
                                 <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
@@ -93,7 +98,7 @@
                         </div>
 
                         <div class="work-block">
-                            <div class="inner" ref="/images/resource/work-4.jpg">
+                            <div class="inner" ref="https://picsum.photos/480/590?image=755">
                                 <img src="/images/icons/water-2.png" alt="" class="icon">
                                 <h4><a href="#">Santé</a></h4>
                                 <p>Podcasting operational change ment inside of workflows to establish a work. Taking seamless key </p>
@@ -107,7 +112,7 @@
 
                 <div class="center-image col-md-6 col-sm-12 col-xs-12">
                     <div class="inner-box">
-                        <figure class="image"><img id="image" src="/images/resource/image-1.jpg" alt=""></figure>
+                        <figure class="image"><img id="image" src="/images/resource/work-4.jpg" alt=""></figure>
                     </div>
                 </div>
             </div>
@@ -196,6 +201,8 @@
 
     <script>
         $(".inner").mouseenter(function () {
+            $(".inner").removeClass("bordure")
+            $(this).addClass("bordure")
             var img = $(this).attr("ref");
             $("#image").attr("src",img);
         });
