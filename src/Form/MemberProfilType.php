@@ -46,11 +46,6 @@ class MemberProfilType extends ApplicationType
                 TextType::class,
                 $this->getConfiguration(true,'Présentation *', 'Présentez-vous brièvement')
             )
-            ->add(
-                'description',
-                TextareaType::class,
-                $this->getConfiguration(true,'Description *', 'Description')
-            )
         ;
     }
 
